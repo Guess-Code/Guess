@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 500px;
+				height: 500px;
+				position: relative;
+				margin: 200px;
+			}
+			.content {
+			    box-sizing: border-box;
+			    width: 500px;
+			    height: 500px;
+			    border-radius: 50%;
+			    background-color: #ffbe19;
+			    border: 20px solid red;
+			    position: relative;
+			    transition:all 3s ;
+				/* margin-top: 50px;
+				margin-left: 50px; */
+				box-shadow: 0 0 10px 10px gray;
+				overflow: hidden;
+			}
+			/* div{
+				height: 500px;
+				width: 500px;
+				border-radius: 50%;
+				background-color: orange;
+				/*margin: 200px;*/
+				/*border: 20px solid red;
+			} */
+			section{
+				width: 500px;
+				border: 5px solid red;
+				position: absolute;
+				left: -20px;
+				top: 50%;
+				border-radius: 50%;
+				box-sizing: border-box;
+				transform-origin: 50% 50%;
+				background-color: red;	
+			}
+			section:nth-of-type(2){
+				transform: rotateZ(120deg);
+			}
+			section:nth-of-type(3){
+				transform: rotateZ(240deg);
+			}
+			.text{
+			    width: 500px;
+			    height: 500px;
+			    position: absolute;
+			    left: -20px;
+			    top: -20px;
+			}
+			.text main{
+			    height: 250px;
+			    width: 150px;
+			    position: absolute;
+			    left: calc(50% - 75px);
+			    text-align: center;
+			    line-height: 150px;
+			    transform-origin: bottom;
+			    color: #de1717;
+			    font-size: 33px;
+				font-family: 楷体;
+				font-weight: 700;
+				text-shadow: 1px 1px #ffff7f;
+				user-select: none;
+				/* background-color: blue; */
+			}
+			main:nth-of-type(2){
+			    transform: rotateZ(60deg);
+			}
+			main:nth-of-type(3){
+			    transform: rotateZ(120deg);
+			}
+			main:nth-of-type(4){
+			    transform: rotateZ(180deg);
+			}
+			main:nth-of-type(5){
+			    transform: rotateZ(240deg);
+			}
+			main:nth-of-type(6){
+			    transform: rotateZ(300deg);
+			}
+			.btn{
+			    width: 100px;
+			    height: 100px;
+				border-radius: 50%;
+			    background-image: radial-gradient(red 30%,darkred);
+			    position: absolute;
+			    left:calc(50% - 50px);
+			    top:calc(50% - 50px)
+			}
+			.btn main{
+				position: absolute;
+				left: calc(50% - 33px);
+				top: calc(50% - 17px);
+				text-align: center;
+				/* line-height: 150px; */
+				transform-origin: bottom;
+				color: #ffe203;
+				font-size: 33px;
+				font-family: 楷体;
+				font-weight: 700;
+				/* text-shadow: -1px -1px #ffffff; */
+				text-shadow: 1px 1px #000;
+				user-select: none;
+			}
+			span{
+			    display: inline-block;
+			    position: absolute;
+			    left: calc(50% - 30px);
+			    top: -65px;
+			    border:30px solid transparent;
+			    border-bottom: 60px solid #d60f0f;
+			    border-bottom-left-radius: 40%;
+			    border-bottom-right-radius: 40%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="content">
+				<section></section>
+				<section></section>
+				<section></section>
+				<div class="text">
+					<main>手机</main>
+					<main>电脑</main>
+					<main>电视</main>
+					<main>手表</main>
+					<main>谢谢惠顾</main>
+					<main>再来一次</main>
+				</div>
+			</div>
+			<div class="btn">
+				<main>
+					抽奖
+				</main>
+				<span></span>
+			</div>
+		</div>
+	</body>
+	<script>
+	    var btn = document.querySelector('.btn > main');
+	    var content = document.querySelector('.content');
+	    var key = 0
+	    btn.onclick = function(){
+			key += 360 - key % 360
+	        var num = (parseInt(Math.random() * 3) + 2) * 360 + 120 + 50 * (Math.random() - 0.5)
+			// console.log(num-720)
+	        key += num
+			content.style.transform = `rotateZ(${key}deg)`
+	    }
+	</script>
+</html>
