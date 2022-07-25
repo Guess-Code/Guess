@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            box-sizing: border-box;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: rgb(217, 255, 0);
+            border: 20px solid red;
+            position: relative;
+            overflow: hidden;
+            transition:all 3s ;
+        }
+
+        section {
+            box-sizing: border-box;
+            width: 500px;
+            border: 5px solid red;
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            border-radius: 50%;
+            transform-origin: 50% 50%;
+            background-color: red;
+        }
+
+        section:nth-of-type(2) {
+            transform: rotateZ(120deg);
+        }
+
+        section:nth-of-type(3) {
+            transform: rotateZ(240deg);
+        }
+        .text{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            background-color:transparent;
+            left: -20px;
+            top: -20px;
+        }
+        .text main{
+            height: 250px;
+            width: 100px;
+            /* background-color: brown; */
+            position: absolute;
+            left: calc(50% - 50px);
+            text-align: center;
+            line-height: 150px;
+            transform-origin: bottom;
+            color: red;
+            font-size: 25px;
+        }
+        main:nth-of-type(2){
+            transform: rotateZ(60deg);
+        }
+        main:nth-of-type(3){
+            transform: rotateZ(120deg);
+        }
+        main:nth-of-type(4){
+            transform: rotateZ(180deg);
+        }
+        main:nth-of-type(5){
+            transform: rotateZ(240deg);
+        }
+        main:nth-of-type(6){
+            transform: rotateZ(300deg);
+        }
+        .box{
+           width: 500px;
+           height: 500px;
+           position: relative;
+           margin: 200px;
+        }
+        .btn{
+            width: 100px;
+            height: 100px;
+            /* background-color: aqua; */
+            position: absolute;
+            left:calc(50% - 50px);
+            top:calc(50% - 50px)
+            
+        }
+        p{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: rgb(232, 83, 83);
+            border-radius: 50%;
+            color: yellow;
+            cursor: pointer;
+            font-size: 20px;
+            user-select: none;
+        }
+        span{
+            display: inline-block;
+            position: absolute;
+            left: calc(50% - 30px);
+            top: -60px;
+            border:30px solid transparent;
+            border-bottom: 60px solid rgb(230, 43, 43);
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content">
+            <section></section>
+            <section></section>
+            <section></section>
+            <div class="text">
+                <main>手机</main>
+                <main>电脑</main>
+                <main>电视</main>
+                <main>手表</main>
+                <main>谢谢惠顾</main>
+                <main>再来一次</main>
+            </div>
+        </div>
+       <div class="btn">
+            <p>抽奖</p>
+            <span></span>
+       </div>
+    </div>
+
+</body>
+<script>
+    var btn = document.querySelector('.btn > p');
+    var content = document.querySelector('.content');
+    var key = 0
+    btn.onclick = function(){
+        var num = (parseInt(Math.random() * 10) + 12) * 60
+        key += num
+       content.style.transform = `rotateZ(${key}deg)`
+    }
+
+    
+
+</script>
+
+</html>
